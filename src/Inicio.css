@@ -1,0 +1,32 @@
+.App {
+  text-align: left;
+}
+.navbar {
+  width: 100%;
+  padding-top: 1vh !important;
+  padding-bottom: 1vh !important;
+}
+   
+.App-logo {
+  height: 6vmin;
+  pointer-events: none;
+}
+.App-logo-txt {
+  display: initial;
+  pointer-events: none;
+}
+   
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+   
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
