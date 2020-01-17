@@ -9,7 +9,7 @@
     "@types/react-transition-group": "^4.2.3",
     "bootstrap": "^4.4.1",
     "bootswatch": "^4.4.1",
-    "jQuery": "^1.7.4",
+    "jquery": ">=3.4.0",
     "npmrc": "^1.1.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
