@@ -1,89 +1,110 @@
-import React, { Component } from 'react';
-import Buscador from './componentes/Buscador';
-import Resultado from './componentes/Resultado';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Navegador from './componentes/Navegador';
+import Inicio from './Inicio';
+import BusqImg from './BusqImg';
 
-class App extends Component {
+class App extends React.Component {
+    
+    state = {
+        navegacion: ''
+    }
 
-  state = {
-    termino: '',
-    imagenes: [],
-    pagina: '1'
-  }
+    Navegacion = () => {
+        var contenedor = document.getElementById('Contenedor');
+        let navegacion = this.state.navegacion;
+        switch (navegacion) {
+            case 1:
+                ReactDOM.render( <Inicio />, contenedor);
+                break;
+            case 2:
+                ReactDOM.render( <Inicio />, contenedor); 
+                break;
+            case 3:
+                ReactDOM.render( <Inicio />, contenedor); 
+                break;
+            case 4:
+                ReactDOM.render( <BusqImg />, contenedor); 
+                break;
+            default:
+                ReactDOM.render( <Inicio />, contenedor);
+                break;
+        }
 
-  scroll = () => {
-    const elemento = document.querySelector('.jumbotron');
-    elemento.scrollIntoView('smooth','start');
-  }
+    }
 
-  paginaAnterior = () => {
-    //leer el state de la pagina actual
-    let pagina = this.state.pagina;
-    //Leer si la pagina es 1, ya no ir hacia atras
-    if(pagina === 1) return null;
-    //Restar uno a la pagina actual
-    pagina -= 1;
-    //agregar el cambio al state
-    this.setState({
-      pagina
-    }, () => {
-      this.consultarApi();
-      this.scroll();
-    });
-    //console.log(pagina);
-  }
-  paginaSiguiente = () => {
-    //leer el state de la pagina actual
-    let pagina = this.state.pagina;
-    //Sumar uno a la pagina actual
-    pagina += 1;
-    //agregar el cambio al state
-    this.setState({
-      pagina
-    }, () => {
-      this.consultarApi();
-      this.scroll();
-    });
-    //console.log(pagina);
-  }
+    Inicio = () => {
+        let navegacion = this.state.navegacion;
+        if(navegacion === 1) return null;
+        //Sumar uno a la navegacion actual
+        navegacion = 1;
+        //agregar el cambio al state
+        this.setState({
+        navegacion
+        }, () => {
+            this.Navegacion();
+        });
+        //console.log(navegacion);
+    }
+    App2 = () => {
+        let navegacion = this.state.navegacion;
+        if(navegacion === 2) return null;
+        //Sumar uno a la navegacion actual
+        navegacion = 2;
+        //agregar el cambio al state
+        this.setState({
+        navegacion
+        }, () => {
+            this.Navegacion();
+        });
+        //console.log(navegacion);
+    }
+    App3 = () => {
+        let navegacion = this.state.navegacion;
+        if(navegacion === 3) return null;
+        //Sumar uno a la navegacion actual
+        navegacion = 3;
+        //agregar el cambio al state
+        this.setState({
+        navegacion
+        }, () => {
+            this.Navegacion();
+        });
+        //console.log(navegacion);
+    }
+    BusqImg = () => {
+        //leer el state de la navegacion actual
+        let navegacion = this.state.navegacion;
 
-  consultarApi = () => {
-    const terminos = this.state.termino;
-    const pagina = this.state.pagina;
-    const url = `https://pixabay.com/api/?key=14801246-6b330c60536908bc34adfc0ba&q=${terminos}&per_page=30&page=${pagina}`;
-    //console.log(url);
-    fetch(url)
-      .then(respuesta => respuesta.json())
-      .then(resultado => this.setState({ imagenes : resultado.hits }) )
-  }
+        if(navegacion === 4) return null;
+        //Sumar uno a la navegacion actual
+        navegacion = 4;
+        //agregar el cambio al state
+        this.setState({
+        navegacion
+        }, () => {
+            this.Navegacion();
+        });
+        //console.log(navegacion);
+    }
+    
+    render() { 
+        return ( 
+            <React.Fragment>
+                <header onLoad={this.Navegacion}>
+                    <Navegador 
+                        Inicio={this.Inicio}
+                        App2={this.App2}
+                        App3={this.App3}
+                        BusqImg={this.BusqImg}
+                    />
+                </header>
+                <main role="main" id="Contenedor"></main>
 
-  datosBusqueda = (termino) => {
-    this.setState({
-      termino : termino,
-      pagina : 1
-    }, () => {
-      this.consultarApi();
-    });
-  }
-
-     
-  render() {
-    return (
-      <React.Fragment>
-        <div className="jumbotron">
-          <p className="lead text-center">Buscador de Imagenes</p>
-          <Buscador 
-            datosBusqueda={this.datosBusqueda}
-          />
-        </div>
-        <div className="row justify-content-center">
-          <Resultado
-            imagenes={this.state.imagenes}
-            paginaAnterior={this.paginaAnterior}
-            paginaSiguiente={this.paginaSiguiente}
-          />
-        </div>
-      </React.Fragment>
-    );
-  }
+            </React.Fragment>
+           
+         );
+    }
 }
+ 
 export default App;

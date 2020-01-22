@@ -9,13 +9,13 @@
     "@types/react-transition-group": "^4.2.3",
     "bootstrap": "^4.4.1",
     "bootswatch": "^4.4.1",
-    "jquery": ">=3.4.0",
+    "jquery": "^3.4.1",
     "npmrc": "^1.1.1",
+    "popper.js": "^1.16.0",
     "react": "^16.12.0",
-    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
-    "react-paginate": "^6.3.2",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,9 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://git.heroku.com/my-app-prueba-1.git"
   }
 }
