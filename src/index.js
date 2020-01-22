@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Inicio from './Inicio';
+//import $ from 'jquery';
+//import Popper from 'popper.js';
+import App from './App';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "bootswatch/dist/darkly/bootstrap.min.css";  //Tema oscuro
 //import 'bootstrap/dist/css/bootstrap.min.css'; //Original tema claro
 
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Inicio />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
    
 
 // If you want your app to work offline and load faster, you can change
